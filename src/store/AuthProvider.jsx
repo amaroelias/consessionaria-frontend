@@ -7,15 +7,15 @@ export function AuthProvider({ children }) {
   const [token, setToken] = useState(() => localStorage.getItem('token'))
   const navigate = useNavigate()
 
-  const login = async ({ email, senha }) => {
-    const { data } = await api.post('/auth/login', { email, senha })
-    localStorage.setItem('token', data.token)
-    setToken(data.token)
-    navigate('/dashboard')
-  }
+const login = async ({ username, password }) => {
+  const { data } = await api.post('/auth/login', { username, password })
+  localStorage.setItem('token', data.token)
+  setToken(data.token)
+  navigate('/dashboard')
+}
 
-  const register = async ({ nome, email, senha }) => {
-    const { data } = await api.post('/auth/register', { nome, email, senha })
+  const register = async ({ username, password }) => {
+    const { data } = await api.post('/auth/register', { username, password })
     localStorage.setItem('token', data.token)
     setToken(data.token)
     navigate('/dashboard')
