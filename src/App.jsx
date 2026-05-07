@@ -1,13 +1,13 @@
-import "./App.css";
-import { Button } from "@/components/ui/button"
+import { BrowserRouter } from 'react-router-dom'
+import { AuthProvider } from '@/store/AuthProvider'
+import AppRoutes from '@/routes/AppRoutes'
 
-function App() {
+export default function App() {
   return (
-    <>
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
-      <Button>Clique aqui</Button>
-    </>
-  );
+    <BrowserRouter>
+      <AuthProvider>
+        <AppRoutes />
+      </AuthProvider>
+    </BrowserRouter>
+  )
 }
-
-export default App;
